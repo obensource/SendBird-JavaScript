@@ -4,12 +4,8 @@
   "description": "SendBird Web Basic Sample",
   "main": "index.js",
   "scripts": {
-    "dev": "./node_modules/.bin/webpack --mode=development",
-    "dev:w": "./node_modules/.bin/webpack --mode=none -w",
     "build": "webpack",
-    "start:dev": "./node_modules/.bin/webpack-dev-server",
-    "start": "node ./server.js",
-    "deploy": "node ./deploy/deploy.js"
+    "start": "node ./server.js"
   },
   "author": "SendBird",
   "license": "ISC",
