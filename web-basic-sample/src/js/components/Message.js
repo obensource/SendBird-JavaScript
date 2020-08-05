@@ -174,9 +174,29 @@ class Message {
   }
 
   _createAdminElement() {
+    const data = JSON.parse(this.message.data)
+    const authorInfo = `– ${data.author}, ${data.company}`
+
     const root = createDivEl({ className: styles['chat-message'], id: this.message.messageId });
     const msg = createDivEl({ className: styles['message-admin'], content: protectFromXSS(this.message.message) });
+    const authorCredit = createDivEl({ className: styles['message-admin'], content: protectFromXSS(authorInfo) });
+
+    if (this.message.data) {
+      const imageContent = createDivEl({ className: styles['image-content'] });
+      const imageRender = document.createElement('img');
+      imageRender.className = styles['image-render'];
+      imageRender.src = protectFromXSS(data.img);
+      imageRender.onload = () => {
+        Chat.getInstance().main.repositionScroll(imageRender.offsetHeight);
+      };
+      imageContent.appendChild(imageRender);
+
+      root.appendChild(imageContent);
+    }
+
     root.appendChild(msg);
+    root.appendChild(authorCredit);
+
     return root;
   }
 
