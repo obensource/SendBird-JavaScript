@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+console.log('this is my server')
 const PORT = process.env.PORT;
 
 app.use(express.static('dist'));
