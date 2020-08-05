@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "./node_modules/.bin/webpack --mode=development",
     "dev:w": "./node_modules/.bin/webpack --mode=none -w",
-    "build": "./node_modules/.bin/webpack --mode=production",
+    "build": "webpack",
     "start:dev": "./node_modules/.bin/webpack-dev-server",
-    "start": "npm run build && node server.js",
+    "start": "node ./server.js",
     "deploy": "node ./deploy/deploy.js"
   },
   "author": "SendBird",
